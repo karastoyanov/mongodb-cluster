@@ -79,3 +79,32 @@ source venv/bin/activate # Linux/macOS
 ```bash
 pip3 install -m requirements.txt
 ```
+
+##### 1. Create `.env` file on your local machine. 
+**!!!! Keep the contents of that file hidden and do not share it with anyone if you are running your MongoDB cluster on a publicly available host**
+
+```txt
+USERNAME=your_username
+
+PASSWORD=your_password
+
+HOSTNAME=mongodb_cluster_hostanme // localhost or public IP address
+
+PRIMARY_PORT="27017" // Primary node (mongo1) port
+
+SECONDARY_PORT="27018" // Secondary node (mongo2) port
+
+SECONDARY_PORT_2="27019" // Secondary node (mongo3) port
+
+REPLICA_SET=your_replica_set_name // Your replica set name
+
+AUTH_SOURCE=admin
+
+DATABASE=your_database_bame // Database name
+```
+
+##### 2. Run `connect.py` in order to check the connection. 
+**Example of the expected output with the MongoDB cluster from Part 1**
+```
+['admin', 'config', 'demodb', 'local']
+```
