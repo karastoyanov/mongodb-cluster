@@ -1,5 +1,5 @@
 
-### Part 1 ACID transactions in mongo shell
+### Part 1 ACID Transactions in mongo shell
 * Install [Docker Engine](https://docs.docker.com/engine/install/) on your host machine 
 * Deploy MongoDB replica set cluster with three nodes
 	* Primary Node: `mongo1`
@@ -44,7 +44,6 @@ var session = db.getMongo().startSession() // for regularUser
 var session2 = db.getMongo().startSession() // for regularUser2
 ```
 
-
 ##### 7. Start Transaction
 ```javascript
 session.startTransaction({ "readConcern": { "level": "snapshot" }, "writeConcern": { "w": "majority" }}) 
@@ -63,7 +62,95 @@ cities.insertOne({"_id": 1, "name":"New York","country":"United States","contine
 cities.insertOne({"_id": 2, "name":"Delhi","country":"India","continent":"Asia","population":28.514}) // for regularUser2
 ```
 
-### Part 2 ACID Transactions with `pymongo` driver
+
+### Part 2 ACID Transactions in parallel with mongo shell
+
+* Database name `utp-bank`
+* Collections `customers`
+##### 1. Login as admin, create database `utp-bank` and create users with `readWrite` access
+```bash
+mongosh --host hostname --port 27017
+```
+
+```javascript
+use utp-bank
+```
+
+##### 2. Create collection `customers` and define schema
+```javascript
+db.createCollection("customers", {
+  validator: {
+	  "$jsonSchema": {
+	    "bsonType": "object",
+	    "required": ["first_name", "last_name", "gender", "date_of_birth", "email", "phone", "address", "occupation", "employer", "marital_status", "accounts"],
+	    "properties": {
+	      "first_name": { "bsonType": "string" },
+	      "last_name": { "bsonType": "string" },
+	      "gender": { "enum": ["Male", "Female", "Other"] },
+	      "date_of_birth": { "bsonType": "string"},
+	      "email": { "bsonType": "string"},
+	      "phone": { "bsonType": "string" },
+	      "address": {
+	        "bsonType": "object",
+	        "required": ["street", "number", "city", "state", "postal_code", "country"],
+	        "properties": {
+	          "street": { "bsonType": "string" },
+	          "number": { "bsonType": "string" },
+	          "city": { "bsonType": "string" },
+	          "state": { "bsonType": "string" },
+	          "postal_code": { "bsonType": "string" },
+	          "country": { "bsonType": "string" }
+	        }
+	      },
+	      "occupation": { "bsonType": "string" },
+	      "employer": { "bsonType": "string" },
+	      "marital_status": { "enum": ["Single", "Married", "Divorced", "Widowed"] },
+	      "accounts": {
+	        "bsonType": "array",
+	        "items": {
+	          "bsonType": "object",
+	          "required": ["account_number", "type", "balance"],
+	          "properties": {
+	            "account_number": { "bsonType": "string" },
+	            "type": { "enum": ["Savings", "Checking"] },
+	            "balance": { "bsonType": "double" }
+	          }
+	        }
+	      }
+	    }
+	  }
+	}
+})
+```
+
+##### 3. Create users with `readWrite` access for database `utp-bank`
+```javascript
+db.createUser({user: "pesho", pwd: "pesho", roles: [{ role: "readWrite", db: "utp-admin" }]})
+db.createUser({user: "gosho", pwd: "gosho", roles: [{ role: "readWrite", db: "utp-admin" }]})
+```
+
+##### 4. Login with the users on `mongo1` node
+```bash
+mongosh --host localhost --port 27017 -u pesho -p pesho --authenticationDatabase utp-bank
+mongosh --host localhost --port 27017 -u gosho -p gosho --authenticationDatabase utp-bank
+```
+
+##### 5. Start session for each of the users and commit one transaction: create new customer record
+* User `pesho`
+```javascript
+var session = db.getMongo().startSession({readPreference:{mode:"primary"}})
+session.startTransaction({"readConcern":{"level":"snapshot"},"writeConcern":{"w":"majority"}})
+var customers = session.getDatabase("utp-bank").getCollection("customers")
+customers.insertOne({data}) // Replace data with actual record
+```
+* User `gosho`
+```javascript
+var session = db.getMongo().startSession({readPreference:{mode:"primary"}})
+session.startTransaction({"readConcern":{"level":"snapshot"},"writeConcern":{"w":"majority"}})
+var customers = session.getDatabase("utp-bank").getCollection("customers")
+customers.insertOne({data}) // Replace data with actual record
+```
+### Part 3 ACID Transactions with `pymongo` driver
 
 * Create Python virtual environment 
 ```bash

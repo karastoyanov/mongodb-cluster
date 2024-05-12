@@ -21,12 +21,12 @@
             {
                 "account_number": "123456789",
                 "type": "Savings",
-                "balance": 5000.0
+                "balance": 5000.50
             },
             {
                 "account_number": "987654321",
                 "type": "Checking",
-                "balance": 2500.0
+                "balance": 2500.50
             }
         ]
     },
@@ -52,12 +52,12 @@
             {
                 "account_number": "347658347",
                 "type": "Savings",
-                "balance": 4200.0
+                "balance": 4200.34
             },
             {
                 "account_number": "982374982",
                 "type": "Checking",
-                "balance": 2300.0
+                "balance": 2300.23
             }
         ]
     }
