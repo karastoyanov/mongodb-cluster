@@ -1,5 +1,5 @@
 
-### Part 1
+### Part 1 ACID transactions in mongo shell
 * Install [Docker Engine](https://docs.docker.com/engine/install/) on your host machine 
 * Deploy MongoDB replica set cluster with three nodes
 	* Primary Node: `mongo1`
@@ -63,3 +63,19 @@ cities.insertOne({"_id": 1, "name":"New York","country":"United States","contine
 cities.insertOne({"_id": 2, "name":"Delhi","country":"India","continent":"Asia","population":28.514}) // for regularUser2
 ```
 
+### Part 2 ACID Transactions with `pymongo` driver
+
+* Create Python virtual environment 
+```bash
+python3 -m venv venv
+```
+* Start the Python venv 
+```bash
+source venv/bin/activate # Linux/macOS
+
+.\venv\Scripts\activate.bat # Windows with PowerShell
+```
+* Install Python dependencies
+```bash
+pip3 install -m requirements.txt
+```
