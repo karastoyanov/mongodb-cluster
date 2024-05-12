@@ -1,0 +1,134 @@
+[
+  {
+    "name": "Tokyo",
+    "country": "Japan",
+    "continent": "Asia",
+    "population": 37.4
+  },
+  {
+    "name": "Delhi",
+    "country": "India",
+    "continent": "Asia",
+    "population": 28.514
+  },
+  {
+    "name": "Seoul",
+    "country": "South Korea",
+    "continent": "Asia",
+    "population": 25.674
+  },
+  {
+    "name": "Los Angeles",
+    "country": "United States",
+    "continent": "North America",
+    "population": 12.447
+  },
+  {
+    "name": "London",
+    "country": "United Kingdom",
+    "continent": "Europe",
+    "population": 8.982
+  },
+  {
+    "name": "Paris",
+    "country": "France",
+    "continent": "Europe",
+    "population": 2.141
+  },
+  {
+    "name": "Mexico City",
+    "country": "Mexico",
+    "continent": "North America",
+    "population": 21.581
+  },
+  {
+    "name": "Sao Paulo",
+    "country": "Brazil",
+    "continent": "South America",
+    "population": 12.038
+  },
+  {
+    "name": "Buenos Aires",
+    "country": "Argentina",
+    "continent": "South America",
+    "population": 2.891
+  },
+  {
+    "name": "Cairo",
+    "country": "Egypt",
+    "continent": "Africa",
+    "population": 9.5
+  },
+  {
+    "name": "Lagos",
+    "country": "Nigeria",
+    "continent": "Africa",
+    "population": 13.123
+  },
+  {
+    "name": "Kinshasa",
+    "country": "Democratic Republic of the Congo",
+    "continent": "Africa",
+    "population": 11.855
+  },
+  {
+    "name": "Mumbai",
+    "country": "India",
+    "continent": "Asia",
+    "population": 20.748
+  },
+  {
+    "name": "Shanghai",
+    "country": "China",
+    "continent": "Asia",
+    "population": 24.256
+  },
+  {
+    "name": "Moscow",
+    "country": "Russia",
+    "continent": "Europe",
+    "population": 11.503
+  },
+  {
+    "name": "Istanbul",
+    "country": "Turkey",
+    "continent": "Europe",
+    "population": 15.029
+  },
+  {
+    "name": "Berlin",
+    "country": "Germany",
+    "continent": "Europe",
+    "population": 3.562
+  },
+  {
+    "name": "Madrid",
+    "country": "Spain",
+    "continent": "Europe",
+    "population": 3.165
+  },
+  {
+    "name": "Rome",
+    "country": "Italy",
+    "continent": "Europe",
+    "population": 2.873
+  },
+  {
+    "name": "Lima",
+    "country": "Peru",
+    "continent": "South America",
+    "population": 9.751
+  },
+  {
+    "name": "Bogota",
+    "country": "Colombia",
+    "continent": "South America",
+    "population": 7.412
+  },
+  {
+    "name": "Rio de Janeiro",
+    "country": "Brazil",
+    "continent": "South America",
+    "population": 6.747
+  }
+]

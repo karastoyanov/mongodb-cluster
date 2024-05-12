@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  mongo1:
+    image: mongo:latest
+    command: mongod --replSet rs0 --bind_ip localhost,mongo1
+    ports:
+      - "27017:27017"
+    networks:
+      - mongoCluster
+
+  mongo2:
+    image: mongo:latest
+    command: mongod --replSet rs0 --bind_ip localhost,mongo2
+    ports:
+      - "27018:27017"
+    networks:
+      - mongoCluster
+
+  mongo3:
+    image: mongo:latest
+    command: mongod --replSet rs0 --bind_ip localhost,mongo3
+    ports:
+      - "27019:27017"
+    networks:
+      - mongoCluster
+
+networks:
+  mongoCluster:

@@ -1,0 +1,18 @@
+# Ignore files and dirs not to be published on the remote repository
+
+# Ignore Python cache files
+/__pycache__/
+
+# Ignore Documentation
+/documents/
+
+# Ignore Python venv
+/venv/
+
+# Ignore IDE and Obsidian files
+/.idea/
+/.obsidian/
+/.vscode/
+
+# Ignore MongoDB URI data
+.env
