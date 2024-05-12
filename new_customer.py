@@ -4,7 +4,7 @@ from bson.objectid import ObjectId
 from connect import mongo1_client, db
 
 def add_customer(customer_data):
-    """Add a new customer to the database.
+    """add_customer --> Add a new customer to the database.
     Args:
         customer_data (json): Customer's data to be added to the database.
     """
@@ -28,7 +28,7 @@ def add_customer(customer_data):
 
 
 def delete_customer(customer_id):
-    """Delete a customer from the database.
+    """delete_customer --> Delete a customer from the database.
     Args:
         customer_id (str): Customer's _id to be deleted from the database.
     """

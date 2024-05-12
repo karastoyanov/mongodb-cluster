@@ -37,4 +37,6 @@ mongo3_client = MongoClient(
 db = mongo1_client[database]
 db2 = mongo2_client[database]
 db3 = mongo3_client[database]
-print(mongo1_client.list_database_names())
+# Get the list of databases in the primary node
+# print(mongo1_client.list_database_names())
+
