@@ -33,7 +33,7 @@ def delete_customer(customer_id):
         customer_id (str): Customer's _id to be deleted from the database.
     """
     # Start a transaction
-    session = primary_client.start_session()
+    session = mongo1_client.start_session()
     try:
         with session.start_transaction():
             # Delete the customer
