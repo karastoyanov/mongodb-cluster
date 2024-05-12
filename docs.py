@@ -1,5 +1,5 @@
 #!./venv/bin/python3
-from new_customer import add_customer, delete_customer
+from manage_customers import add_customer, delete_customer
 
 print("*" * 50 + "\n")
 
