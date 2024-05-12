@@ -1,3 +1,4 @@
+
 ### Part 1
 * Install [Docker Engine](https://docs.docker.com/engine/install/) on your host machine 
 * Deploy MongoDB replica set cluster with three nodes
@@ -61,3 +62,4 @@ var cities = session2.getDatabase("demodb").getCollection("cities") // for regul
 cities.insertOne({"_id": 1, "name":"New York","country":"United States","continent":"North America","population":18.819 }) // for regularUser
 cities.insertOne({"_id": 2, "name":"Delhi","country":"India","continent":"Asia","population":28.514}) // for regularUser2
 ```
+
