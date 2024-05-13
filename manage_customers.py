@@ -51,7 +51,35 @@ def delete_customer(customer_id):
 # Example customer data
 new_customer = {
     "_id": str(ObjectId()),
-    # Complete the customer data with the required fields
+    "first_name": "",
+    "last_name": "",
+    "gender": "",
+    "date_of_birth": "",
+    "email": "",
+    "phone": "",
+    "address": {
+        "street": "",
+        "number": "",
+        "city": "",
+        "state": "",
+        "postal_code": "",
+        "country": ""
+    },
+    "occupation": "",
+    "employer": "",
+    "marital_status": "",
+    "accounts": [
+        {
+            "account_number": "",
+            "type": "",
+            "balance": 0000
+        },
+        {
+            "account_number": "",
+            "type": "",
+            "balance": 0000
+        }
+    ]
 }
 
 # Execute that line to add the customer

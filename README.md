@@ -125,8 +125,8 @@ db.createCollection("customers", {
 
 ##### 3. Create users with `readWrite` access for database `utp-bank`
 ```javascript
-db.createUser({user: "pesho", pwd: "pesho", roles: [{ role: "readWrite", db: "utp-admin" }]})
-db.createUser({user: "gosho", pwd: "gosho", roles: [{ role: "readWrite", db: "utp-admin" }]})
+db.createUser({user: "pesho", pwd: "pesho", roles: [{ role: "readWrite", db: "utp-bank" }]})
+db.createUser({user: "gosho", pwd: "gosho", roles: [{ role: "readWrite", db: "utp-bank" }]})
 ```
 
 ##### 4. Login with the users on `mongo1` node
