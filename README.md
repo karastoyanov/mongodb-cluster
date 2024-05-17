@@ -125,30 +125,46 @@ db.createCollection("customers", {
 
 ##### 3. Create users with `readWrite` access for database `utp-bank`
 ```javascript
-db.createUser({user: "pesho", pwd: "pesho", roles: [{ role: "readWrite", db: "utp-bank" }]})
-db.createUser({user: "gosho", pwd: "gosho", roles: [{ role: "readWrite", db: "utp-bank" }]})
+db.createUser({user: "pesho", pwd: "pesho", roles: [{ role: "readWrite", db: "utp-bank" }]});
+
+db.createUser({user: "gosho", pwd: "gosho", roles: [{ role: "readWrite", db: "utp-bank" }]});
 ```
 
 ##### 4. Login with the users on `mongo1` node
 ```bash
 mongosh --host localhost --port 27017 -u pesho -p pesho --authenticationDatabase utp-bank
+
 mongosh --host localhost --port 27017 -u gosho -p gosho --authenticationDatabase utp-bank
 ```
 
 ##### 5. Start session for each of the users and commit one transaction: create new customer record
 * User `pesho`
 ```javascript
-var session = db.getMongo().startSession({readPreference:{mode:"primary"}})
-session.startTransaction({"readConcern":{"level":"snapshot"},"writeConcern":{"w":"majority"}})
-var customers = session.getDatabase("utp-bank").getCollection("customers")
-customers.insertOne({data}) // Replace data with actual record
+var session = db.getMongo().startSession({readPreference:{mode:"primary"}});
+
+session.startTransaction({
+    readConcern: { level: "snapshot" }, // Use snapshot isolation level
+    writeConcern: { w: "majority" },   // Use majority write concern
+    maxTimeMS: 120000 // Set maximum transaction time to 120 seconds (adjust as needed)
+});
+
+var customers = session.getDatabase("utp-bank").getCollection("customers");
+
+customers.insertOne({data}); // Replace data with actual record
 ```
 * User `gosho`
 ```javascript
-var session = db.getMongo().startSession({readPreference:{mode:"primary"}})
-session.startTransaction({"readConcern":{"level":"snapshot"},"writeConcern":{"w":"majority"}})
-var customers = session.getDatabase("utp-bank").getCollection("customers")
-customers.insertOne({data}) // Replace data with actual record
+var session = db.getMongo().startSession({readPreference:{mode:"primary"}});
+
+session.startTransaction({
+    readConcern: { level: "snapshot" }, // Use snapshot isolation level
+    writeConcern: { w: "majority" },   // Use majority write concern
+    maxTimeMS: 120000 // Set maximum transaction time to 120 seconds (adjust as needed)
+});
+
+var customers = session.getDatabase("utp-bank").getCollection("customers");
+
+customers.insertOne({data}); // Replace data with actual record
 ```
 ### Part 3 ACID Transactions with `pymongo` driver
 

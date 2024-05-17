@@ -1,0 +1,24 @@
+[
+    {
+        "provider_name": "Electric-Sofia",
+        "email": "contact@electric-sofia.com",
+        "phone": "+8312797154",
+        "address": {
+            "street": "Ivan Vazov",
+            "city": "Sofia",
+            "state": "Sofia",
+            "postal_code": "1000",
+            "country": "Bulgaria"
+        },
+        "services": [
+            {
+                "service_name": "Electricity",
+                "service_type": "Utility",
+                "description": "Electric power supply"
+            }
+        ],
+        "account_number": "294-203-510",
+        "type": "Bills",
+        "balance": 1200.03
+    }
+]

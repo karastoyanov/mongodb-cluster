@@ -1,0 +1,18 @@
+[
+    {
+        "transaction_date": ISODate("2020-05-18T14:10:30Z"), 
+        "amount": 500.10,
+        "sender": {
+            "first_name": "Pesho",
+            "last_name": "Peshov",
+            "email": "pesho.peshov@example.com",
+            "account_number": "987-654-321"
+        },
+        "recipient": {
+            "first_name": "Maria",
+            "last_name": "Peshova",
+            "email": "maria.peshova@example.com",
+            "account_number": "347-658-347"
+        }
+    }
+]
